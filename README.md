@@ -159,5 +159,31 @@ fig.text(0.15, -0.15, text)
 
 #### Code Breakdown
 ```python
-
+import matplotlib.pyplot as plt
 ```
+> **Explanation:** <br>
+> This imports `import matplotlib.pyplot as plt` the matplot library and assign it to plt.
+
+```python
+mbt= board2.groupby('Track')['Average'].mean().reset_index()
+mbg = board2.groupby('Gender')['Average'].mean().reset_index()
+mbh= board2.groupby('Hometown')['Average'].mean().reset_index()
+```
+> **Explanation:** <br>
+> * This `mbt= board2.groupby('Track')['Average']` groups Track and Average, and this `.mean().reset_index()` takes the average scores of each track and then resets the index <br>
+> * This `mbg= board2.groupby('Gender')['Average']` groups Gender and Average, and this `.mean().reset_index()` takes the average scores of each gender and then resets the index <br>
+> * This `mbh= board2.groupby('Hometown')['Average']` groups Howmetown and Average, and this `.mean().reset_index()` takes the average scores of each track and then resets the index <br>
+
+```python
+print("Mean By Track:\n")
+mbt
+
+print("Mean By Gender:\n")
+mbg
+
+print("Mean By Hometown:\n")
+mbh
+```
+
+> **Explanation:** <br>
+> While this shows the averages in tabular form. 
