@@ -2,7 +2,7 @@
 ### 2ECE-D
 
 # ECE2112_PA4
-#     DATA WRANGLING AND DATA VISUALIZATIOn
+#     DATA WRANGLING AND DATA VISUALIZATION
 ## Purpose
   This README explains the various functions of the different lines of code that was used in this project.  
   ## A.VISAYAS COMMUNICATION DATAFRAME
@@ -186,4 +186,57 @@ mbh
 ```
 
 > **Explanation:** <br>
-> While this shows the averages in tabular form. 
+> While this shows the averages in tabular form.
+
+
+```python
+fig, axes = plt.subplots(1,3, figsize = (17,5))
+```
+
+> **Explanation:** <br>
+> This generate a single figure window containing a row of three side-by-side subplots. `(1,3, figsize = (17,5))` Is responsible for generating one row of subplot and 3 columns of subplot. While `figsize = (17,5)` is for setting the dimensions of the window.
+
+```python
+
+axes[0].bar(mbt['Track'], mbt['Average'], color = 'Cyan')
+axes[0].set_title('Track Average')
+axes[0].set_xlabel('Track')
+axes[0].set_ylabel('Average')
+```
+> **Explanation:** <br>
+> * `axes[0]` Targets the first subplot in the window, `.bar()` is a function that draws a vertical bar chart for the data. While `mbt['Track'], mbt['Average']` sets the x-axis and y-axis data respectively, both taking from the data frame named *mbt*.
+> * `.set_title('Track Average')` This function names the subplot as *Track Average*
+> * `.set_xlabel('Track')` & `axes[0].set_ylabel('Average')` labels the x-axis and y-axis respectively as *Track* and *Average*.
+
+```python
+axes[1].bar(mbg['Gender'], mbg['Average'], color = 'Teal')
+axes[1].set_title('Gender Average')
+axes[1].set_xlabel('Gender')
+axes[1].set_ylabel('Average')
+
+
+axes[2].bar(mbh['Hometown'], mbh['Average'], color = 'Pink')
+axes[2].set_title('Hometown Average')
+axes[2].set_xlabel('Hometown')
+axes[2].set_ylabel('Average')
+```
+> **Explanation:** <br>
+> * This is mostly similar to the code for `axes[0]`, it's just that this time we are editing the 2nd and 3rd subplot, so we'd be using `axes[1]` and `axes[2]`.
+> * Other changes are instead of taking data from the data frame, *mbt*`(mean by track)`, subplot 2 would be taking from data frame *mbg*`(mean by gender)` and the 3 subplot would be taking data from *mbh* `(mean by hometown)`.
+> * The x-axis will instead take data from *Gender*`mbg['Gender']` for the 2nd subplot and *Hometown*`mbh['Hometown']` for the 3rd subplot
+> * The subplot would be named Gender Average and Hometown Average for the 2nd and 3rd subplot, this is due to the code `axes[1].set_title('Gender Average')` and `axes[2].set_title('Hometown Average')`
+> * Of course the labels for the x-axis would be changed for their corresponding subplot, `axes[1].set_xlabel('Gender')`  and `axes[2].set_xlabel('Hometown')`.
+
+
+ ```python
+text = ('Feature 1: Communication recorded the highest average with a score of *67.975*'
+'\nFeature 2: Male recorded the highest average with a score of *67.18333*'
+'\nFeature 3: Visayas recorded the highest average with a score of *6.08333*'
+)
+
+fig.text(0.15, -0.15, text)
+ ```
+ **Explanation:** <br>
+> This three are the written statements identifying the category with the highest sample
+mean for each feature.
+> `fig.text(0.15, -0.15, text)` places the content of `*text* ` at position *0.15, -0.15*
